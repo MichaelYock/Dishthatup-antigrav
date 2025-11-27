@@ -1,3 +1,15 @@
+---
+layout: layouts/recipe.njk
+permalink: /recipes/{{ title | slugify }}/index.html
+title: Colorful Vegetable Stir-Fry
+date: 2025-11-25
+thumbnail: /images/vege-strifry.png
+description: A vibrant and healthy stir-fry packed with crisp vegetables in a savory garlic-ginger sauce. Perfect for a quick weeknight dinner!
+ingredients:
+  - 2 tbsp vegetable oil
+  - 3 cloves garlic, minced
+  - 1 tbsp fresh ginger, grated
+  - 1 red bell pepper, sliced
   - 1 yellow bell pepper, sliced
   - 2 cups broccoli florets
   - 1 cup snap peas

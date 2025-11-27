@@ -1,3 +1,15 @@
+---
+layout: layouts/recipe.njk
+permalink: /recipes/{{ title | slugify }}/index.html
+title: Classic Chocolate Chip Cookies
+date: 2025-11-25
+thumbnail: /images/cookies.png
+description: Soft and chewy chocolate chip cookies with the perfect balance of sweetness and chocolate chunks. A timeless classic that never disappoints!
+ingredients:
+  - 2 1/4 cups all-purpose flour
+  - 1 tsp baking soda
+  - 1 tsp salt
+  - 1 cup (2 sticks) butter, softened
   - 3/4 cup granulated sugar
   - 3/4 cup packed brown sugar
   - 2 large eggs
