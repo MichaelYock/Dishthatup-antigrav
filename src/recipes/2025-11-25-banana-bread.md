@@ -1,10 +1,10 @@
 ---
 layout: layouts/recipe.njk
-permalink: /recipes/{{ title | slugify }}/index.html
 title: Moist Banana Bread
 date: 2025-11-25
-thumbnail: /images/BananaBread.png
-description: Incredibly moist and flavorful banana bread made with overripe bananas. Perfect for breakfast or an afternoon snack with a cup of coffee!
+thumbnail: /img/uploads/bananabread.png
+description: Incredibly moist and flavorful banana bread made with overripe
+  bananas. Perfect for breakfast or an afternoon snack with a cup of coffee!
 ingredients:
   - 3 ripe bananas, mashed
   - 1/3 cup melted butter
@@ -25,8 +25,11 @@ instructions:
   - Add flour and cinnamon, mixing just until incorporated. Do not overmix.
   - Fold in chopped walnuts if using.
   - Pour batter into prepared loaf pan.
-  - Bake for 60-65 minutes, or until a toothpick inserted into the center comes out clean.
-  - Cool in pan for 10 minutes, then turn out onto a wire rack to cool completely.
+  - Bake for 60-65 minutes, or until a toothpick inserted into the center comes
+    out clean.
+  - Cool in pan for 10 minutes, then turn out onto a wire rack to cool
+    completely.
 cooking_time: 1 hour 15 minutes
 servings: 10
+permalink: /recipes/{{ title | slugify }}/index.html
 ---
