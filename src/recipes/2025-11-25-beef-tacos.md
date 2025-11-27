@@ -1,5 +1,6 @@
 ---
 layout: layouts/recipe.njk
+permalink: /recipes/{{ title | slugify }}/index.html
 title: Spicy Beef Tacos
 date: 2025-11-25
 thumbnail: https://placehold.co/800x600/f97316/ffffff?text=Beef+Tacos

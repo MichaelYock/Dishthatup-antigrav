@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 ---
 <article class="max-w-4xl mx-auto px-4 py-8">
+    {% include "schemas/recipe-schema.njk" %}
     <header class="mb-8">
         {% if thumbnail %}
         <div class="relative w-full h-96 rounded-lg overflow-hidden shadow-md mb-6">

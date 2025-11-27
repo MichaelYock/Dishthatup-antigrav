@@ -1,6 +1,7 @@
 ---
 layout: layouts/recipe.njk
-title: Authentic Spaghetti Carbonara
+permalink: /recipes/{{ title | slugify }}/index.html
+title: Classic Spaghetti Carbonara
 date: 2025-11-25
 thumbnail: https://placehold.co/800x600/ef4444/ffffff?text=Spaghetti+Carbonara
 description: A classic Italian pasta dish with a creamy egg and cheese sauce, crispy pancetta, and freshly cracked black pepper. Simple yet incredibly delicious!

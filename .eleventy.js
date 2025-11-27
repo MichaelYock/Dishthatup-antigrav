@@ -18,6 +18,16 @@ module.exports = function (eleventyConfig) {
     return `${year}-${month}-${day}`;
   });
 
+  // Slugify filter for creating URL-friendly strings
+  eleventyConfig.addFilter("slugify", function (str) {
+    return str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/[\s_-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  });
+
   // Recipe collection
   eleventyConfig.addCollection("recipes", function (collectionApi) {
     return [...collectionApi.getFilteredByGlob("src/recipes/*.md")];

@@ -1,5 +1,6 @@
 ---
 layout: layouts/recipe.njk
+permalink: /recipes/{{ title | slugify }}/index.html
 title: Creamy Mushroom Risotto
 date: 2025-11-25
 thumbnail: https://placehold.co/800x600/78716c/ffffff?text=Mushroom+Risotto

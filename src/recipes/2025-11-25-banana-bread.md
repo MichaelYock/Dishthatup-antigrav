@@ -1,5 +1,6 @@
 ---
 layout: layouts/recipe.njk
+permalink: /recipes/{{ title | slugify }}/index.html
 title: Moist Banana Bread
 date: 2025-11-25
 thumbnail: https://placehold.co/800x600/a855f7/ffffff?text=Banana+Bread

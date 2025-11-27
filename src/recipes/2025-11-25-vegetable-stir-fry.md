@@ -1,5 +1,6 @@
 ---
 layout: layouts/recipe.njk
+permalink: /recipes/{{ title | slugify }}/index.html
 title: Colorful Vegetable Stir-Fry
 date: 2025-11-25
 thumbnail: https://placehold.co/800x600/10b981/ffffff?text=Vegetable+Stir+Fry

@@ -1,5 +1,6 @@
 ---
 layout: layouts/recipe.njk
+permalink: /recipes/{{ title | slugify }}/index.html
 title: Classic Chocolate Chip Cookies
 date: 2025-11-25
 thumbnail: https://placehold.co/800x600/f59e0b/ffffff?text=Chocolate+Chip+Cookies

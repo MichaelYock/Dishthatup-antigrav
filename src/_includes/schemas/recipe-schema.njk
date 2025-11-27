@@ -1,0 +1,30 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "{{ title | replace('"', '\\"') }}",
+  "image": ["{{ metadata.url }}{{ thumbnail }}"],
+  "author": {
+    "@type": "Person",
+    "name": "DISHTHATUP"
+  },
+  "datePublished": "{{ page.date.toISOString() }}",
+  "description": "{{ description | replace('"', '\\"') }}",
+  "recipeYield": "{{ servings }} servings",
+  "totalTime": "PT{{ cooking_time | replace(' minutes', 'M') | replace(' hours', 'H') | replace(' hour', 'H') | replace(' ', '') }}",
+  "keywords": "{{ tags | join(', ') }}",
+  "recipeIngredient": [
+    {% for ingredient in ingredients %}
+    "{{ ingredient | replace('"', '\\"') }}"{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ],
+  "recipeInstructions": [
+    {% for step in instructions %}
+    {
+      "@type": "HowToStep",
+      "text": "{{ step | replace('"', '\\"') }}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>

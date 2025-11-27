@@ -1,5 +1,6 @@
 ---
 layout: layouts/recipe.njk
+permalink: /recipes/{{ title | slugify }}/index.html
 title: Chicken Tikka Masala
 date: 2025-11-25
 thumbnail: https://placehold.co/800x600/dc2626/ffffff?text=Chicken+Tikka+Masala

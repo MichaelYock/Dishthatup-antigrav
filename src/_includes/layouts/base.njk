@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
+    <link rel="canonical" href="{{ metadata.url }}{{ page.url }}">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    {% block head %}{% endblock %}
 </head>
 <body>
     <header class="bg-white shadow-sm relative z-50">
-        <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
-            <a href="/" class="text-2xl font-bold text-pink-500">DISHTHATUP</a>
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-4">
+            <a href="/" class="block">
+                <img src="/images/DISHTHATUP.svg" alt="DISHTHATUP" class="h-8 w-auto">
+            </a>
             
             <!-- Mobile Menu Toggle -->
             <input type="checkbox" id="nav-toggle" class="peer hidden">
@@ -20,8 +25,26 @@
                 </svg>
             </label>
 
-            <!-- Navigation Links -->
-            <div class="hidden peer-checked:block w-full md:block md:w-auto mt-4 md:mt-0 transition-all duration-300">
+            <!-- Navigation Links and Search -->
+            <div class="hidden peer-checked:block w-full md:flex md:w-auto md:items-center md:gap-6 mt-4 md:mt-0 transition-all duration-300">
+                <!-- Expandable Search Bar -->
+                <div class="relative mb-4 md:mb-0">
+                    <form action="/recipes/" method="get" class="relative" id="search-form">
+                        <input 
+                            type="text" 
+                            name="q"
+                            id="nav-search-input" 
+                            placeholder="Search recipes..." 
+                            class="w-0 px-0 py-2 pl-0 pr-0 text-sm border-2 border-transparent rounded-full focus:border-pink-500 focus:outline-none transition-all duration-300 focus:w-64 focus:px-10"
+                        >
+                        <button type="button" id="search-toggle" class="absolute left-0 md:left-auto md:right-2 top-1/2 -translate-y-1/2 text-gray-600 hover:text-pink-500 transition-colors p-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                
                 <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
                     <li><a href="/" class="block text-gray-600 hover:text-pink-500 transition-colors py-2 md:py-0">Home</a></li>
                     <li><a href="/recipes/" class="block text-gray-600 hover:text-pink-500 transition-colors py-2 md:py-0">Recipes</a></li>
@@ -38,6 +61,43 @@
             <p>&copy; 2025 DISHTHATUP. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+      // Expandable search functionality
+      const searchToggle = document.getElementById('search-toggle');
+      const searchInput = document.getElementById('nav-search-input');
+      const searchForm = document.getElementById('search-form');
+      
+      if (searchToggle && searchInput) {
+        searchToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          searchInput.classList.toggle('w-64');
+          searchInput.classList.toggle('w-0');
+          searchInput.classList.toggle('px-10');
+          searchInput.classList.toggle('px-0');
+          searchInput.classList.toggle('border-gray-200');
+          searchInput.classList.toggle('border-transparent');
+          
+          if (searchInput.classList.contains('w-64')) {
+            searchInput.focus();
+          }
+        });
+        
+        // Close search when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!searchForm.contains(e.target) && searchInput.classList.contains('w-64')) {
+            searchInput.classList.remove('w-64', 'px-10', 'border-gray-200');
+            searchInput.classList.add('w-0', 'px-0', 'border-transparent');
+          }
+        });
+        
+        // Submit form on Enter
+        searchInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter' && searchInput.value.trim() !== '') {
+            searchForm.submit();
+          }
+        });
+      }
+    </script>
     <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
