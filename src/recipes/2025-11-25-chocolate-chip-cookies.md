@@ -3,7 +3,7 @@ layout: layouts/recipe.njk
 permalink: /recipes/{{ title | slugify }}/index.html
 title: Classic Chocolate Chip Cookies
 date: 2025-11-25
-thumbnail: /images/cookies.png
+thumbnail: /img/uploads/cookies.png
 description: Soft and chewy chocolate chip cookies with the perfect balance of sweetness and chocolate chunks. A timeless classic that never disappoints!
 ingredients:
   - 2 1/4 cups all-purpose flour

@@ -3,7 +3,7 @@ layout: layouts/recipe.njk
 permalink: /recipes/{{ title | slugify }}/index.html
 title: Colorful Vegetable Stir-Fry
 date: 2025-11-25
-thumbnail: /images/vege-strifry.png
+thumbnail: /img/uploads/vege-strifry.png
 description: A vibrant and healthy stir-fry packed with crisp vegetables in a savory garlic-ginger sauce. Perfect for a quick weeknight dinner!
 ingredients:
   - 2 tbsp vegetable oil

@@ -3,7 +3,7 @@ layout: layouts/recipe.njk
 permalink: /recipes/{{ title | slugify }}/index.html
 title: Spicy Beef Tacos
 date: 2025-11-25
-thumbnail: /images/tacos.png
+thumbnail: /img/uploads/tacos.png
 description: Flavorful seasoned ground beef tacos with all your favorite toppings. A crowd-pleasing Mexican favorite that's perfect for Taco Tuesday or any night of the week!
 ingredients:
   - 1 lb ground beef

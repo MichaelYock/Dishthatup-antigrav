@@ -3,7 +3,7 @@ layout: layouts/recipe.njk
 permalink: /recipes/{{ title | slugify }}/index.html
 title: Chicken Tikka Masala
 date: 2025-11-25
-thumbnail: /images/tikkamasala.png
+thumbnail: /img/uploads/tikkamasala.png
 description: Tender marinated chicken in a rich, creamy tomato sauce with aromatic spices. This restaurant-quality Indian dish is easier to make at home than you think!
 ingredients:
   - 1.5 lbs boneless chicken thighs, cut into chunks
