@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply antialiased;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+@layer utilities {
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+        .md\:writing-mode-vertical {
+            writing-mode: vertical-rl;
+        }
+    }
+}
+
+@layer components {
+    .featured-swiper {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 1rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 0 1rem;
+        margin: 0 -1rem;
+    }
+
+    .featured-swiper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .featured-card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+    }
+
+    @media (min-width: 768px) {
+        .featured-swiper {
+            display: contents;
+        }
+
+        .featured-card {
+            flex: none;
+        }
+    }
+
+    /* Category Slider */
+    .category-slider {
+        display: flex;
+        gap: 0.75rem;
+        overflow-x: auto;
+        scroll-snap-type: x proximity;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 0.5rem;
+    }
+
+    .category-slider::-webkit-scrollbar {
+        display: none;
+    }
+
+    .category-btn {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem;
+        background: white;
+        border: 2px solid #e5e7eb;
+        border-radius: 1rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        scroll-snap-align: start;
+        position: relative;
+        z-index: 1;
+    }
+
+    .category-btn:hover {
+        border-color: #ec4899;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15);
+        z-index: 10;
+    }
+
+    .category-btn.active {
+        background: #fdf2f8;
+        border-color: #ec4899;
+        box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
+    }
+
+    .category-icon {
+        font-size: 2rem;
+        line-height: 1;
+    }
+
+    .category-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #374151;
+        white-space: nowrap;
+    }
+
+    .category-btn.active .category-label {
+        color: #ec4899;
+    }
+
+    /* Recipe Card Hover Effects */
+    .recipe-card,
+    .featured-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .recipe-card::before,
+    .featured-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(244, 114, 182, 0.15));
+        opacity: 0;
+        transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .recipe-card:hover,
+    .featured-card:hover {
+        box-shadow: 0 8px 16px rgba(236, 72, 153, 0.15);
+    }
+
+    .recipe-card:hover::before,
+    .featured-card:hover::before {
+        opacity: 1;
+    }
+
+    /* Recipe Title Hover */
+    .recipe-card:hover h2,
+    .recipe-card:hover h3,
+    .featured-card:hover h2,
+    .featured-card:hover h3 {
+        color: #f9a8d4 !important;
+    }
+}

@@ -1,0 +1,86 @@
+---
+layout: layouts/base.njk
+title: DISHTHATUP
+---
+
+
+<div class="max-w-6xl mx-auto px-4 mt-0 md:mt-8">
+    <!-- Mobile: Horizontal Title -->
+    <h2 class="text-3xl font-bold text-gray-800 mb-2 md:hidden">Featured ➜</h2>
+    
+    <div class="md:grid md:grid-cols-4 md:gap-8">
+        <!-- Desktop: Vertical Featured Label -->
+        <div class="hidden md:flex md:items-center md:justify-center">
+            <h2 class="text-4xl font-bold text-gray-800 md:writing-mode-vertical whitespace-nowrap">Featured ➜</h2>
+        </div>
+        
+        <!-- Mobile: Horizontal Swiper / Desktop: Grid -->
+        <div class="featured-swiper md:contents mt-0">
+            {% for recipe in collections.featuredRecipes | reverse | limit(3) %}
+            <a href="{{ recipe.url }}" class="featured-card relative bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block aspect-square group" data-tags="{% if recipe.data.tags %}{{ recipe.data.tags | join(',') }}{% endif %}">
+                {% if recipe.data.thumbnail %}
+                <img src="{{ recipe.data.thumbnail }}" alt="{{ recipe.data.title }}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                {% endif %}
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 class="text-xl font-bold text-white group-hover:text-pink-300 transition-colors line-clamp-2">{{ recipe.data.title }}</h3>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Bio Section -->
+<div class="max-w-4xl mx-auto px-4 py-16">
+    <div class="flex flex-col md:flex-row items-center gap-8 bg-white rounded-2xl shadow-lg p-8 md:p-12">
+        <div class="flex-shrink-0">
+            <img src="/images/silly-goat.png" alt="Billy" class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover shadow-md border-4 border-pink-100">
+        </div>
+        <div class="text-center md:text-left">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Hi, I'm Billy! 👋</h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Welcome to my kitchen! I'm a passionate home cook who loves experimenting with flavors and sharing delicious recipes. 
+                Whether you're looking for quick weeknight dinners or impressive dishes for special occasions, I've got you covered. 
+                Join me on this culinary adventure and let's make something amazing together!
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Latest Recipes Section -->
+<div class="max-w-6xl mx-auto px-4 py-16 bg-gray-50 rounded-3xl my-16">
+    <div class="flex justify-between items-end mb-12 px-4">
+        <h2 class="text-3xl font-bold text-gray-800">Latest Recipes</h2>
+        <a href="/recipes/" class="text-pink-500 hover:text-pink-600 font-semibold flex items-center gap-2 transition-colors">
+            View All <span class="text-xl">→</span>
+        </a>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+        {% for recipe in collections.recipes | reverse | limit(6) %}
+        <a href="{{ recipe.url }}" class="recipe-card relative bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block aspect-square group">
+            {% if recipe.data.thumbnail %}
+            <img src="{{ recipe.data.thumbnail }}" alt="{{ recipe.data.title }}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            {% endif %}
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-90"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-pink-300 transition-colors line-clamp-2">{{ recipe.data.title }}</h3>
+                <div class="flex justify-between items-center text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                    {% if recipe.data.cooking_time %}
+                    <span class="bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full flex items-center gap-1">
+                        <span>⏱️</span> {{ recipe.data.cooking_time }}
+                    </span>
+                    {% endif %}
+                    <span class="bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold">View Recipe →</span>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    
+    <div class="text-center mt-12 md:hidden">
+        <a href="/recipes/" class="inline-block bg-pink-500 text-white font-bold py-3 px-8 rounded-full hover:bg-pink-600 transition-colors shadow-lg shadow-pink-200">View All Recipes</a>
+    </div>
+</div>
+

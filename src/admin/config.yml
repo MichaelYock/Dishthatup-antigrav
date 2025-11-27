@@ -1,0 +1,41 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/img/uploads"
+public_folder: "/img/uploads"
+
+collections:
+  - name: "recipes"
+    label: "Recipes"
+    folder: "src/recipes"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/recipe.njk"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Ingredients", name: "ingredients", widget: "list", field: {label: "Ingredient", name: "ingredient", widget: "string"}}
+      - {label: "Instructions", name: "instructions", widget: "list", field: {label: "Step", name: "step", widget: "text"}}
+      - {label: "Cooking Time", name: "cooking_time", widget: "string", required: false}
+      - {label: "Servings", name: "servings", widget: "number", required: false}
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        required: false
+        options:
+          - {label: "Featured", value: "featured"}
+          - {label: "Vegetarian", value: "vegetarian"}
+          - {label: "Vegan", value: "vegan"}
+          - {label: "Gluten-Free", value: "gluten-free"}
+          - {label: "Dairy-Free", value: "dairy-free"}
+          - {label: "Quick & Easy", value: "quick-easy"}
+          - {label: "Dessert", value: "dessert"}
+          - {label: "Breakfast", value: "breakfast"}
+          - {label: "Lunch", value: "lunch"}
+          - {label: "Dinner", value: "dinner"}
+          - {label: "Appetizer", value: "appetizer"}
+          - {label: "Healthy", value: "healthy"}

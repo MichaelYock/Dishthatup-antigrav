@@ -1,0 +1,25 @@
+{
+  "name": "eleventy-decap-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel watch:*",
+    "build": "npm-run-all build:*",
+    "watch:eleventy": "eleventy --serve --port 8080",
+    "watch:css": "node_modules\\.bin\\tailwindcss -i ./src/css/style.css -o ./_site/css/style.css --watch",
+    "build:eleventy": "eleventy",
+    "build:css": "node_modules\\.bin\\tailwindcss -i ./src/css/style.css -o ./_site/css/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "autoprefixer": "^10.4.22",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
+  }
+}
