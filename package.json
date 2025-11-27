@@ -7,9 +7,9 @@
     "start": "npm-run-all --parallel watch:*",
     "build": "npm-run-all build:*",
     "watch:eleventy": "eleventy --serve --port 8080",
-    "watch:css": "node_modules\\.bin\\tailwindcss -i ./src/css/style.css -o ./_site/css/style.css --watch",
+    "watch:css": "npx tailwindcss -i ./src/css/style.css -o ./_site/css/style.css --watch",
     "build:eleventy": "eleventy",
-    "build:css": "node_modules\\.bin\\tailwindcss -i ./src/css/style.css -o ./_site/css/style.css"
+    "build:css": "npx tailwindcss -i ./src/css/style.css -o ./_site/css/style.css"
   },
   "keywords": [],
   "author": "",
