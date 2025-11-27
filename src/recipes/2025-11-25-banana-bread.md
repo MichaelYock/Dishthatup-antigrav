@@ -3,7 +3,7 @@ layout: layouts/recipe.njk
 permalink: /recipes/{{ title | slugify }}/index.html
 title: Moist Banana Bread
 date: 2025-11-25
-thumbnail: https://placehold.co/800x600/a855f7/ffffff?text=Banana+Bread
+thumbnail: /images/BananaBread.png
 description: Incredibly moist and flavorful banana bread made with overripe bananas. Perfect for breakfast or an afternoon snack with a cup of coffee!
 ingredients:
   - 3 ripe bananas, mashed
